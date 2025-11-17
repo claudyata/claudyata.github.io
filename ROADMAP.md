@@ -5,3 +5,4 @@
 | 1 | Septiembre | Infraestructura | 🔄 En progreso |
 | 2 | Octubre | Extracción de Datos | ⏳ Pendiente |
 ...
+
