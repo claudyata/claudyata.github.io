@@ -1,7 +1,6 @@
-# Flashing and CUDA installation using SDK Manager Installation
+# Flasheo e instalación de CUDA mediante la instalación del SDK Manager
 
-Este documento describe las decisiones tomadas para la elección del hardware donde se ejecutará nuestro agente IA dentro del proyecto **Cl@udiata: Modelos de Lenguaje en la Analítica Deportiva**.  
-Se detallan los criterios de selección de GPU, el análisis de las diferentes opciones disponibles y la justificación de la infraestructura elegida, considerando cómo optimizar el rendimiento del agente, la eficiencia energética y la gestión del ciclo de vida de los datos deportivos.
+Este documento describe paso a paso cómo instalar y configurar **CUDA** medienate **SDK Manager**.
 
 ---
 
@@ -53,11 +52,11 @@ sudo apt-get -y  install sdkmanager
 
 ### 2.3 Jetson en modo Recovery
 
-Antes de instalar el sistema operativo en la NVIDIA Jetson AGX Orin, es necesario poner el dispositivo en modo recuperación (Recovery Mode). 
+Antes de instalar el sistema operativo en la **NVIDIA Jetson AGX Orin**, es necesario poner el dispositivo en modo recuperación (Recovery Mode). 
 
 Este proceso permite que un ordenador host con Ubuntu reconozca la Jetson como un dispositivo listo para ser flasheado mediante SDK Manager.
 
-Para poner la Jetson AGX Orin en modo Recovery, sigue estos pasos:
+Para poner la Jetson AGX Orin en modo Recovery, hay que seguir los siguientes pasos:
 
 1. [Leer Guia] (https://developer.nvidia.com/embedded/learn/jetson-agx-orin-devkit-user-guide/two_ways_to_set_up_software.html) y ver video Jetpack 6.2: Command Line Install for Orin Nano and AGX (https://www.youtube.com/watch?v=WQg3PEUBiD8)
 2. Apaga el dispositivo.
@@ -90,6 +89,7 @@ Sigue las intrucuiones dentro del host externo en el SDK Manager:
 Conectar teclado, ratón y pantalla para completar el asistente de configuración inicial (idioma, red, contraseña).
 
 Abre un terminal y verifica la instalación:
+
 ```bash
 nvcc --version
 python3 --version

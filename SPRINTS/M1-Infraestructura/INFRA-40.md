@@ -1,10 +1,26 @@
-# Instalación de MinIO en NVIDIA Jetson AGX
+# Diseño de la tarea: INFRA-40: Configurar un sistema de almacenamiento distribuido de objetos, altamente escalable y compatible con S3.
 
-Este documento describe paso a paso cómo instalar y configurar **MinIO** en nuestro dispositivo **NVIDIA Jetson AGX**.
+Este documento describe la tarea **[INFRA-40]** dentro del proyecto **Cl@udiata: Modelos de Lenguaje en la Analítica Deportiva**.  
+Incluye la descripción, objetivos, procedimientos, verificación y resultados esperados para que otros estudiantes puedan reproducir el trabajo en su entorno.
 
 ---
 
-## INFRA-40: Configurar un sistema de almacenamiento distribuido de objetos, altamente escalable y compatible con S3.
+## Tabla de contenidos
+1. [Descripción y Objetivo](#1-descripción-y-objetivo)  
+2. [Requisitos / Contexto](#2-requisitos--contexto)  
+3. [Procedimiento de instalación y configuración](#3-procedimiento-de-instalación-y-configuración)  
+4. [Validación del entorno (Checkpoints)](#4-validación-del-entorno-checkpoints)  
+5. [Riesgos / Bloqueos](#5-riesgos--bloqueos)  
+6. [Conclusión](#6-conclusión)  
+7. [Referencias](# 11. Referencias)
+
+---
+
+## 1. Descripción y Objetivo
+
+# Instalación de MinIO en NVIDIA Jetson AGX
+
+Este documento describe paso a paso cómo instalar y configurar **MinIO** en nuestro dispositivo **NVIDIA Jetson AGX**.
 
 **Descripción:**  
 Como estudiante, quiero configurar un sistema de almacenamiento distribuido utilizando MinIO para gestionar el ciclo de vida de los datos en, de manera segura, mediante una estructura medallón (Bronze, Silver, Gold), que permita la colaboración entre nodos o equipos.
@@ -14,7 +30,9 @@ Garantizar una transferencia y almacenamiento seguro de los datos, permitiendo u
 
 ---
 
-## 1. Descarga e instalación de MinIO
+## 2. Requisitos / Contexto
+
+## 3. Procedimiento de instalación y configuración
 
 1. Descargar el binario de MinIO para Linux ARM64 (compatible con Jetson AGX):
 
@@ -85,7 +103,7 @@ Crear el volumen raíz:
 sudo mkdir -p /usr/local/share/minio
 ```
 
-## 6. Arrancar MinIO como servicio systemd
+## 5. Arrancar MinIO como servicio systemd
 
 Crear el archivo /etc/systemd/system/minio.service:
 ```bash
@@ -140,7 +158,7 @@ Tendras que ver algo así:
 oct 13 11:22:16 ubuntu systemd[1]: Started MinIO.
 ```
 
-## 7. Configuración de AWS CLI y Python boto3 en NVIDIA Jetson AGX
+## 6. Configuración de AWS CLI y Python boto3 en NVIDIA Jetson AGX
 
 Debido a que MinIO es compatible con la API de S3 de AWS, vamos a aprovechar esa compatibilidad para instalar y probar **AWS CLI** y **Python boto3** y así manipular buckets S3 en MinIO de nuesta Jetson.
 
@@ -405,7 +423,7 @@ mc ls bronze
 [2025-10-13 11:52:21 UTC]     0B bronze/
 ```
 
-## 7. Instalación de MinIO Client (mc) en Windows 11
+## 8. Instalación de MinIO Client (mc) en Windows 11
 
 Nos interesa conectar al servidor MinIO instalado en la NVIDIA Jetson AGX y acceder a los buckets definidos desde un host externo.
 
@@ -574,16 +592,20 @@ aws
 mc
 ```
 
-## 10. Referencias
+## 11. Referencias
 
-Documentación oficial MinIO: https://docs.min.io/enterprise/aistor-object-store/
+- [Documentación oficial MinIO](https://docs.min.io/enterprise/aistor-object-store/)
 
-MinIO Client mc: https://docs.min.io/enterprise/aistor-object-store/reference/cli/
+- [MinIO Client mc](https://docs.min.io/enterprise/aistor-object-store/reference/cli/)
 
-Documentación oficial de MinIO SDK: https://docs.min.io/enterprise/aistor-object-store/developers/minio-drivers/
+- [Documentación oficial de MinIO SDK](https://docs.min.io/enterprise/aistor-object-store/developers/minio-drivers/)
 
-Documentación oficial de AWS CLI: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html
+- [Documentación oficial de AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
 
-Documentación oficial de S3: https://docs.aws.amazon.com/s3/
+- [Documentación oficial de S3](https://docs.aws.amazon.com/s3/)
 
-Documentación de boto3: https://boto3.amazonaws.com/v1/documentation/api/latest/index.html
+- [Documentación de boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
+
+---
+
+
