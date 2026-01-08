@@ -410,7 +410,7 @@ El sistema ha sido desplegado y validado con datos reales de la **liga de fútbo
 **Épicas:** DATA · DWH · RAG  
 **Tareas:** DATA-10 · 20 · DWH-10 · 20 · 30 · RAG-20 · 40
 
-- **Ejemplo:** *"¿Cuántos goles marcó el FC Bissen en casa?"*
+- **Ejemplo:** *"¿Que paso aquí?"*
 - **Proceso:**
   1. Embedding de la consulta con e5-large
   2. Recuperación semántica de eventos en ChromaDB
@@ -428,7 +428,7 @@ El sistema ha sido desplegado y validado con datos reales de la **liga de fútbo
 - **Funcionalidad:** Generación automática de crónicas post-partido
 - **Características:**
   - Selección de partido por equipo y jornada
-  - Generación narrativa en 4 idiomas (ES, FR, LB, DE)
+  - Generación narrativa en diferentes idiomas (ES, FR, LB, DE ... )
   - Streaming de tokens en tiempo real
   - Métricas de rendimiento (tokens/s, latencia)
   - Análisis táctico automático
