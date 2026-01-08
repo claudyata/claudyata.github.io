@@ -98,3 +98,7 @@ artefactos/src/core/plata/
 
 # Mantener estructura de directorios vacíos
 !.gitkeep
+
+# Crawlers (código sensible - no subir)
+artefactos/src/crawlers/
+**/crawlers/
