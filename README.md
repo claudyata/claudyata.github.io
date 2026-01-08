@@ -205,15 +205,6 @@ claudyata.github.io/
 │           ├── gpu_monitor.py
 │           └── test_tflops.py
 ├── docs/                               # Documentación técnica
-│   ├── img/                            # Imágenes y diagramas
-│   │   ├── RAG.png
-│   │   ├── Medallion.png
-│   │   ├── GPU.png
-│   │   ├── Embeddings.png
-│   │   ├── Qwen.png
-│   │   ├── COSTE.png
-│   │   ├── PMBOK.png
-│   │   └── GRANT.png
 │   ├── 02-setup-jetson-orin.md
 │   ├── 03-setup-docker.md
 │   ├── 04-arquitectura-medallion.md
@@ -226,7 +217,6 @@ claudyata.github.io/
 │   └── 08-etl-bronze-to-silver-to-gold.ipynb
 ├── environment.yml                     # Dependencias conda
 ├── Modelfile.claudiata                 # Configuración modelo Ollama
-├── DOC.md                              # Documentación principal
 ├── index.html                          # Página web del proyecto
 └── README.md                           # Este archivo
 ```
@@ -286,12 +276,6 @@ Sistema: [Recupera 5 eventos relevantes de ChromaDB]
 
 ![Comparativa GPUs](docs/img/GPU.png)
 
-| GPU | TFLOPS/TOPS | Consumo | Coste | Puntuación |
-|-----|-------------|---------|-------|------------|
-| **Jetson Orin ✅** | 275 TOPS | 60W | $899 | **85.2%** |
-| NVIDIA H100 | 1979 TFLOPS | 700W | $30,000 | 72.5% |
-| NVIDIA A100 | 624 TFLOPS | 400W | $10,000 | 54.8% |
-
 **✅ Conclusión:** Jetson AGX Orin ofrece el mejor balance rendimiento/coste/consumo para edge computing.
 
 **Criterios evaluados:**
@@ -307,12 +291,6 @@ Sistema: [Recupera 5 eventos relevantes de ChromaDB]
 
 ![Comparativa Embeddings](docs/img/Embeddings.png)
 
-| Modelo | Dimensiones | Velocidad | Calidad | Ranking |
-|--------|-------------|-----------|---------|---------|
-| **e5-large ✅** | 1024 | 0.42s | 95.3% | **1º** |
-| mxbai-embed | 1024 | 0.38s | 93.1% | 2º |
-| nomic-embed | 768 | 0.51s | 91.8% | 3º |
-
 **✅ Conclusión:** `intfloat/multilingual-e5-large` es óptimo para análisis multiidioma.
 
 **Métricas evaluadas:**
@@ -327,12 +305,6 @@ Sistema: [Recupera 5 eventos relevantes de ChromaDB]
 
 ![Modelo Qwen2.5](docs/img/Qwen.png)
 
-| Modelo | Parámetros | Tokens/s | Memoria | Calidad |
-|--------|-----------|----------|---------|---------|
-| **Qwen2.5 ✅** | 32B | **4.69** | 19GB | 9.2/10 |
-| Llama 3.3 | 70B | 2.31 | 42GB | 9.1/10 |
-| Mistral | 7B | 12.45 | 4.7GB | 7.8/10 |
-
 **✅ Conclusión:** Qwen2.5 32B (cuantizado Q4) ofrece el mejor balance calidad/velocidad.
 
 **Aspectos evaluados:**
@@ -345,52 +317,13 @@ Sistema: [Recupera 5 eventos relevantes de ChromaDB]
 
 ### 4. Benchmark de Cuantización
 
-| Cuantización | Tamaño | Tokens/s | Memoria | Calidad |
-|--------------|--------|----------|---------|---------|
-| FP16 | 38GB | 3.42 | 40GB | 10/10 |
-| Q5_K_M | 23GB | 4.37 | 25GB | 9.8/10 |
-| **Q4_K_M ✅** | 19GB | **4.69** | 19GB | **9.5/10** |
-
 **✅ Conclusión:** Cuantización Q4_K_M es óptima para Jetson (mejor velocidad sin pérdida perceptible de calidad).
-
-**Resultados del benchmark:**
-```bash
-# Ejecutado en: experiments/09-benchmark_qwen_quantization.py
-
-Q4_K_M (INT4):
-  - Velocidad: 4.69 tokens/s
-  - Latencia primer token: 0.741s
-  - Memoria: 19GB
-  - Calidad: 9.5/10 (pérdida <2%)
-
-Q5_K_M (INT5):
-  - Velocidad: 4.37 tokens/s (-6.9%)
-  - Latencia primer token: 0.785s
-  - Memoria: 23GB (+21%)
-  - Calidad: 9.8/10 (pérdida <1%)
-```
 
 ---
 
 ### 5. Análisis de Costes
 
 ![Análisis de Costes](docs/img/COSTE.png)
-
-**Comparativa económica (5 años):**
-
-| Solución | Inversión Inicial | Coste Operativo/Año | Coste Total 5 Años |
-|----------|-------------------|---------------------|--------------------|
-| **Jetson Orin (Local)** | $899 | $26 | **$1,029** ✅ |
-| Cloud GPU (AWS p3.2xlarge) | $0 | $5,475 | $27,375 |
-| Cloud GPU (GCP V100) | $0 | $4,380 | $21,900 |
-
-**Supuestos:**
-- Uso: 8h/día, 365 días/año
-- Electricidad: $0.15/kWh
-- Jetson: 20W promedio
-- Cloud: precios bajo demanda
-
-**✅ Ahorro de $26,346 en 5 años con despliegue local**
 
 ---
 
@@ -399,13 +332,6 @@ Q5_K_M (INT5):
 ![Gestión de Proyecto](docs/img/PMBOK.png)
 
 El proyecto se gestionó siguiendo las **mejores prácticas del PMBOK** (Project Management Body of Knowledge):
-
-**Áreas de conocimiento aplicadas:**
-- 📋 **Gestión del Alcance:** Definición clara de objetivos y entregables
-- ⏱️ **Gestión del Tiempo:** Planificación con diagrama de Gantt
-- 💰 **Gestión de Costes:** Presupuesto y análisis ROI
-- ⚙️ **Gestión de Riesgos:** Identificación y mitigación de riesgos técnicos
-- 🎯 **Gestión de Calidad:** Validación experimental y benchmarking
 
 ---
 
@@ -422,13 +348,14 @@ El proyecto se gestionó siguiendo las **mejores prácticas del PMBOK** (Project
 
 2. **Fase 2 - Desarrollo** (Mes 3-4)
    - Implementación ETL (Bronze → Silver → Gold)
-   - Integración RAG con ChromaDB
-   - Desarrollo de interfaz Streamlit
+   - Implementación RAG
+   - Implementación Data Lake
 
 3. **Fase 3 - Experimentación** (Mes 5)
    - Benchmarks comparativos
-   - Validación con usuarios reales
-   - Optimización de rendimiento
+   - Validaciones
+   - Optimizacies
+   - Desarrollo de interfaz Streamlit
 
 4. **Fase 4 - Documentación** (Mes 6)
    - Redacción de memoria
@@ -465,22 +392,119 @@ El sistema ha sido desplegado y validado con datos reales de la **liga de fútbo
 
 ### Funcionalidades Implementadas
 
-1. **💬 Consulta Histórica**
-   - Ejemplo: *"¿Cuántos goles marcó el FC Bissen en casa?"*
-   - Respuesta: Recupera estadísticas de todos los partidos locales
+#### 🖥️ **Tab 0: Terminal / Validación INFRA**
+**Épicas:** INFRA · RAG  
+**Tareas:** INFRA-10 · 20 · 30 · 40 · RAG-10
 
-2. **⚖️ Análisis Comparativo**
-   - Ejemplo: *"Compara el rendimiento ofensivo de los 3 mejores equipos"*
-   - Respuesta: Genera tabla con goles, promedio, efectividad
+- ✅ Validación de infraestructura completa
+- ✅ Verificación de Jetson AGX Orin (CUDA, GPU, RAM)
+- ✅ Comprobación de servicios (Docker, Ollama, MinIO)
+- ✅ Logs de inicialización del sistema
+- ✅ Terminal interactiva para debugging
 
-3. **🔍 Scouting**
-   - Ejemplo: *"Encuentra jugadores con más de 5 goles en los últimos 10 partidos"*
-   - Respuesta: Lista de jugadores destacados con estadísticas
+**Qué demuestra:** Infraestructura real funcionando en edge (Jetson, CUDA, Docker, Ollama, MinIO)
 
-4. **📝 Resúmenes Automáticos**
-   - Generación de crónicas post-partido en 4 idiomas
-   - Análisis táctico automático
-   - Exportación a múltiples formatos
+---
+
+#### 🔍 **Tab 1: Búsqueda RAG**
+**Épicas:** DATA · DWH · RAG  
+**Tareas:** DATA-10 · 20 · DWH-10 · 20 · 30 · RAG-20 · 40
+
+- **Ejemplo:** *"¿Cuántos goles marcó el FC Bissen en casa?"*
+- **Proceso:**
+  1. Embedding de la consulta con e5-large
+  2. Recuperación semántica de eventos en ChromaDB
+  3. Generación de respuesta contextualizada con Qwen2.5
+  4. Visualización de fuentes utilizadas
+
+**Qué demuestra:** Retrieval semántico + generación con fuentes reales del Data Warehouse
+
+---
+
+#### 📝 **Tab 2: Resumen NLP**
+**Épicas:** NLP · RAG  
+**Tareas:** NLP-30 · DWH-20 · RAG-30
+
+- **Funcionalidad:** Generación automática de crónicas post-partido
+- **Características:**
+  - Selección de partido por equipo y jornada
+  - Generación narrativa en 4 idiomas (ES, FR, LB, DE)
+  - Streaming de tokens en tiempo real
+  - Métricas de rendimiento (tokens/s, latencia)
+  - Análisis táctico automático
+
+**Ejemplo de salida:**
+```
+"En la jornada inaugural de la temporada, el US Hueschtert se enfrentó 
+al Victoria Rouspert en un partido que quedará marcado por la dominación 
+visitante. Steinbach abrió el marcador a los 6 minutos con un golazo..."
+```
+
+**Qué demuestra:** Resumen narrativo profesional + streaming + métricas tok/s
+
+---
+
+#### ⚖️ **Tab 3: Análisis DAFO**
+**Épicas:** NLP  
+**Tareas:** NLP-10
+
+- **Funcionalidad:** Análisis DAFO (Debilidades, Amenazas, Fortalezas, Oportunidades) táctico por equipo
+- **Proceso:**
+  1. Selección de equipo
+  2. Análisis de partidos recientes
+  3. Generación de DAFO estructurado
+  4. Recomendaciones tácticas
+
+**Ejemplo de análisis:**
+```
+FORTALEZAS:
+- Sólida defensa (solo 3 goles en contra en 5 partidos)
+- Eficacia ofensiva en balón parado (40% de goles)
+
+DEBILIDADES:
+- Dependencia excesiva del delantero centro
+- Bajo porcentaje de posesión fuera de casa (35%)
+
+OPORTUNIDADES:
+- Próximos rivales con defensas débiles
+- Mercado de fichajes abierto
+
+AMENAZAS:
+- Lesión del portero titular
+- Calendario exigente (3 partidos en 7 días)
+```
+
+**Qué demuestra:** Análisis táctico estructurado y contextualizado por equipo
+
+---
+
+#### 💻 **Tab 4: Monitorización GPU**
+**Épicas:** INFRA  
+**Tareas:** INFRA-50
+
+- **Funcionalidad:** Monitoreo en tiempo real del consumo energético
+- **Métricas capturadas:**
+  - 📊 Uso de GPU (%)
+  - 🌡️ Temperatura (°C)
+  - ⚡ Consumo energético (W)
+  - 💾 Memoria RAM/VRAM (MB)
+  - 📈 Frecuencia de reloj (MHz)
+  
+- **Visualización:**
+  - Gráficas en tiempo real
+  - Logs de tegrastats
+  - Análisis post-mortem
+  - Cálculo de coste energético
+
+**Ejemplo de métricas:**
+```
+Consumo promedio: 18.5W
+Temperatura máxima: 52°C
+Coste energético: $0.0028/hora
+Huella de carbono: 0.0092 kg CO₂/hora
+```
+
+**Qué demuestra:** Green AI - consumo, coste, logs y análisis de eficiencia energética
 
 ### Validación con Usuarios
 
@@ -496,6 +520,26 @@ El sistema ha sido desplegado y validado con datos reales de la **liga de fútbo
 
 ---
 
+## 🗺️ Mapeo de Funcionalidades
+
+| Tab | Funcionalidad | Épicas | Tareas | Qué Demuestra |
+|-----|---------------|--------|--------|---------------|
+| **0** | Terminal / Validación INFRA | INFRA · RAG | INFRA-10 · 20 · 30 · 40 · RAG-10 | Infraestructura real: Jetson, CUDA, Docker, Ollama, MinIO |
+| **1** | Búsqueda RAG | DATA · DWH · RAG | DATA-10 · 20 · DWH-10 · 20 · 30 · RAG-20 · 40 | Retrieval semántico + generación con fuentes reales |
+| **2** | Resumen NLP | NLP · RAG | NLP-30 · DWH-20 · RAG-30 | Resumen narrativo + streaming + métricas tok/s |
+| **3** | Análisis DAFO | NLP | NLP-10 | Análisis táctico estructurado por equipo |
+| **4** | Monitorización GPU | INFRA | INFRA-50 | Green AI: consumo, coste, logs y análisis post-mortem |
+
+### Cobertura de Épicas
+
+- ✅ **INFRA** (Infraestructura): Tabs 0, 4
+- ✅ **DATA** (Datos): Tab 1
+- ✅ **DWH** (Data Warehouse): Tabs 1, 2
+- ✅ **RAG** (Retrieval-Augmented Generation): Tabs 0, 1, 2
+- ✅ **NLP** (Procesamiento de Lenguaje Natural): Tabs 2, 3
+
+---
+
 ## 📖 Documentación Técnica
 
 ### Guías de Setup
@@ -507,8 +551,6 @@ El sistema ha sido desplegado y validado con datos reales de la **liga de fútbo
 
 ### Documentos Principales
 
-- [📄 DOC.md](DOC.md) - Memoria técnica completa del proyecto
-- [🤖 Modelfile.claudiata](Modelfile.claudiata) - Configuración del modelo Ollama personalizado
 - [🌐 index.html](https://claudyata.github.io) - Página web del proyecto
 
 ---
@@ -517,7 +559,7 @@ El sistema ha sido desplegado y validado con datos reales de la **liga de fútbo
 
 ### Instituciones
 
-- **🎓 Universitat Oberta de Catalunya (UOC)** - Máster en Ciencia de Datos
+- **🎓 Universitat Oberta de Catalunya (UOC)** - Grado de Ciencia de Datos Aplicada
 - **⚽ FC Bissen** - Club de fútbol luxemburgués (datos y validación)
 
 ### Tecnologías Open Source
