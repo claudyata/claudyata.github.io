@@ -1,4 +1,4 @@
-# 🤖 Cl@udiata - Agente Virtual de Análisis Deportivo
+# 🤖 Cl@udiata: Modelos de Lenguaje en la Analítica Deportiva
 
 [![Python](https://img.shields.io/badge/Python-3.10-blue.svg)](https://www.python.org/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.36-red.svg)](https://streamlit.io/)
@@ -216,7 +216,7 @@ claudyata.github.io/
 │   ├── 07-comparativa-modelos-llm.ipynb
 │   └── 08-etl-bronze-to-silver-to-gold.ipynb
 ├── environment.yml                     # Dependencias conda
-├── Modelfile.claudiata                 # Configuración modelo Ollama
+├── Modelfile.cla                 # Configuración modelo Ollama
 ├── index.html                          # Página web del proyecto
 └── README.md                           # Este archivo
 ```
