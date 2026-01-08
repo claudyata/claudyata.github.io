@@ -1,0 +1,100 @@
+# ============================================================================
+# .gitignore - Proyecto Cl@udiata
+# ============================================================================
+
+# Base de datos ChromaDB
+chroma_db/
+*.sqlite3
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# Entornos virtuales
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+tfg/
+uoc/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+logs/
+*.log
+data/logs/
+artefactos/src/data/logs/
+
+# Monitoreo GPU
+gpu_monitoring/
+tegrastats_*.log
+gpu_stats_*.png
+consumo_gpu_*.png
+
+# Resultados experimentales (excluir gráficas generadas)
+experiments/gpu_monitoring/
+experiments/plata_test/
+experiments/*.log
+
+# Archivos temporales
+*.tmp
+*.bak
+*.old
+.cache/
+tmp/
+
+# Datos sensibles
+.env
+.env.local
+*.key
+*.pem
+secrets/
+
+# MinIO / Archivos grandes
+plata/
+oro/
+bronce/
+*.csv.gz
+
+# Modelos descargados
+models/
+*.gguf
+*.bin
+*.safetensors
+
+# Outputs específicos
+artefactos/src/core/plata/
+
+# Mantener estructura de directorios vacíos
+!.gitkeep

@@ -1,0 +1,11 @@
+DECISIÓN FINAL - RAG-10b
+Fecha: 2026-01-08T11:13:50.236538
+
+Modelo seleccionado: qwen2.5:32b (32B)
+Score global: 7.97/10
+Precisión: 9.40/10
+Naturalidad: 9.40/10
+Cobertura luxemburgués: 9.30/10
+
+Caso de uso: Traducción multilingüe (LB → ES / FR / EN)
+Contexto: Fútbol semiprofesional – análisis deportivo local

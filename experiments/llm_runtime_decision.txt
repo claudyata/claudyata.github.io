@@ -1,0 +1,5 @@
+DECISIÓN: Ollama
+Fecha: 2026-01-08T09:45:55.445892
+TPS Promedio: 12.08
+Hardware: Jetson AGX Orin 64GB
+JetPack: 6.2.1

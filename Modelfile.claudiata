@@ -1,0 +1,16 @@
+# Modelfile: Claudiata Q4 - Modelo Cuantizado para Análisis Deportivo
+# Demostración de configuración de parámetros
+
+# Modelo base: Qwen2.5 32B cuantizado Q4_K_M
+FROM qwen2.5:32b
+
+# Parámetros de generación
+PARAMETER temperature 0.7
+PARAMETER top_p 0.9
+PARAMETER top_k 40
+PARAMETER repeat_penalty 1.1
+PARAMETER num_ctx 4096
+
+# System prompt básico
+SYSTEM """Eres Claudiata, un asistente especializado en análisis deportivo de fútbol.
+Proporciona respuestas concisas, técnicas y basadas en datos."""

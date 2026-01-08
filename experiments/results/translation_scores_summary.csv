@@ -1,0 +1,6 @@
+model,model_params,weighted_score_mean,weighted_score_std,precision_mean,naturalness_mean,coverage_mean
+qwen2.5:32b,32B,7.97,0.17,9.4,9.4,9.3
+qwen2.5:14b,14B,7.19,0.52,8.47,8.43,8.5
+qwen2.5:7b,14B,5.33,1.7,6.17,6.0,6.8
+llama3:8b,8B,4.93,1.5,6.3,6.23,4.27
+llama3.2:3b,3B,3.42,1.92,4.4,4.53,2.63

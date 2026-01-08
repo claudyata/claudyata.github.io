@@ -1,0 +1,76 @@
+model,model_params,category,difficulty,target_lang,original_text,translation,reference,eval_precision,eval_naturalness,eval_coverage,eval_notes
+llama3.2:3b,3B,Saludos cotidianos,Fácil,español,Moien! Wéi geet et dir?,¡Hola! ¿Cómo estás?,¡Hola! ¿Cómo estás?,8.0,8.5,3.0,Traducción correcta pero reconocimiento LB limitado
+llama3.2:3b,3B,Saludos cotidianos,Fácil,francés,Moien! Wéi geet et dir?,Salud! ¿Cómo estás?,Salut! Comment vas-tu?,3.0,2.5,2.5,Idioma incorrecto
+llama3.2:3b,3B,Saludos cotidianos,Fácil,inglés,Moien! Wéi geet et dir?,Hello! How are you?,Hello! How are you?,8.0,8.5,3.0,Correcto pero genérico
+llama3.2:3b,3B,Presentación personal,Media,español,Ech heeschen Claude an ech si aus Lëtzebuerg,Me llamo Claudio de Luxemburgo,Me llamo Claude y soy de Luxemburgo,5.5,5.0,3.0,Parcialmente correcto
+llama3.2:3b,3B,Presentación personal,Media,francés,Ech heeschen Claude an ech si aus Lëtzebuerg,Se dirige a usted Monsieur Claude,Je m'appelle Claude et je viens du Luxembourg,2.0,2.5,2.0,No traduce correctamente
+llama3.2:3b,3B,Presentación personal,Media,inglés,Ech heeschen Claude an ech si aus Lëtzebuerg,Hello my name is Claude from Luxembourg,My name is Claude and I'm from Luxembourg,7.5,7.5,3.5,Aceptable
+llama3.2:3b,3B,Comida y cultura,Media,español,Ech géif gär e Kachkéis iessen,Come papas fritas,Me gustaría comer queso fundido,1.0,1.0,1.0,Error semántico grave
+llama3.2:3b,3B,Comida y cultura,Media,francés,Ech géif gär e Kachkéis iessen,Texto no reconocido,J'aimerais manger du fromage fondu,0.5,0.5,0.5,Fallo total
+llama3.2:3b,3B,Comida y cultura,Media,inglés,Ech géif gär e Kachkéis iessen,We only eat cake,I would like to eat melted cheese,1.5,1.5,1.0,Traducción incorrecta
+llama3.2:3b,3B,Trabajo,Fácil,español,Wat mécht d'Aarbecht?,¿Qué hace el trabajo?,¿Cómo va el trabajo?,4.0,4.5,3.0,Literal incorrecto
+llama3.2:3b,3B,Trabajo,Fácil,francés,Wat mécht d'Aarbecht?,Qu'est-ce que fait l'industrie?,Comment va le travail?,2.5,3.0,2.5,Confusión semántica
+llama3.2:3b,3B,Trabajo,Fácil,inglés,Wat mécht d'Aarbecht?,What is the point of work?,How is work going?,3.0,3.5,2.5,Aproximación incorrecta
+llama3.2:3b,3B,Evento cultural,Difícil,español,D'Schueberfouer ass e groussen Fest zu Lëtzebuerg,Gran festival en Luxemburgo,La Schueberfouer es una gran fiesta en Luxemburgo,6.5,6.5,4.0,Correcto pero incompleto
+llama3.2:3b,3B,Evento cultural,Difícil,francés,D'Schueberfouer ass e groussen Fest zu Lëtzebuerg,Grand festival à Luxembourg,La Schueberfouer est une grande fête au Luxembourg,6.5,6.5,4.0,Aceptable
+llama3.2:3b,3B,Evento cultural,Difícil,inglés,D'Schueberfouer ass e groussen Fest zu Lëtzebuerg,Large festival in Luxembourg,The Schueberfouer is a big festival in Luxembourg,6.5,6.5,4.0,Correcto genérico
+llama3:8b,8B,Saludos cotidianos,Fácil,español,Moien! Wéi geet et dir?,Hola! ¿Cómo estás?,¡Hola! ¿Cómo estás?,8.5,8.5,4.5,Correcto y natural
+llama3:8b,8B,Saludos cotidianos,Fácil,francés,Moien! Wéi geet et dir?,Bonjour ! Comment vas-tu ?,Salut! Comment vas-tu?,8.5,8.5,4.5,Traducción correcta
+llama3:8b,8B,Saludos cotidianos,Fácil,inglés,Moien! Wéi geet et dir?,Hello! How are you?,Hello! How are you?,9.0,9.0,4.5,Excelente
+llama3:8b,8B,Presentación personal,Media,español,Ech heeschen Claude an ech si aus Lëtzebuerg,Soy un Claudio que sale de Luxemburgo,Me llamo Claude y soy de Luxemburgo,4.5,4.0,4.0,Sentido parcialmente incorrecto
+llama3:8b,8B,Presentación personal,Media,francés,Ech heeschen Claude an ech si aus Lëtzebuerg,Je m'appelle Claude et je viens de Luxembourg,Je m'appelle Claude et je viens du Luxembourg,8.5,8.0,4.5,Correcto
+llama3:8b,8B,Presentación personal,Media,inglés,Ech heeschen Claude an ech si aus Lëtzebuerg,I am Claude from Luxembourg,My name is Claude and I'm from Luxembourg,7.5,7.5,4.5,Aceptable
+llama3:8b,8B,Comida y cultura,Media,español,Ech géif gär e Kachkéis iessen,Sólo como quiero,Me gustaría comer queso fundido,2.5,2.5,3.0,Error semántico
+llama3:8b,8B,Comida y cultura,Media,francés,Ech géif gär e Kachkéis iessen,Seuls mangeons des fromages suisses,J'aimerais manger du fromage fondu,3.0,3.0,3.0,No traduce correctamente
+llama3:8b,8B,Comida y cultura,Media,inglés,Ech géif gär e Kachkéis iessen,We can only eat Kachkéis,I would like to eat melted cheese,4.5,4.5,4.0,Parcial
+llama3:8b,8B,Trabajo,Fácil,español,Wat mécht d'Aarbecht?,¿Qué hace el trabajo?,¿Cómo va el trabajo?,4.5,4.5,4.0,Literal incorrecto
+llama3:8b,8B,Trabajo,Fácil,francés,Wat mécht d'Aarbecht?,Qu'est-ce que le travail?,Comment va le travail?,6.0,6.0,4.5,Aceptable
+llama3:8b,8B,Trabajo,Fácil,inglés,Wat mécht d'Aarbecht?,What is the point of work?,How is work going?,5.0,5.0,4.0,Aproximación
+llama3:8b,8B,Evento cultural,Difícil,español,D'Schueberfouer ass e groussen Fest zu Lëtzebuerg,Gran festival en Luxemburgo,La Schueberfouer es una gran fiesta en Luxemburgo,7.5,7.5,5.0,Correcto
+llama3:8b,8B,Evento cultural,Difícil,francés,D'Schueberfouer ass e groussen Fest zu Lëtzebuerg,Grand festival à Luxembourg,La Schueberfouer est une grande fête au Luxembourg,7.5,7.5,5.0,Correcto
+llama3:8b,8B,Evento cultural,Difícil,inglés,D'Schueberfouer ass e groussen Fest zu Lëtzebuerg,Large festival in Luxembourg,The Schueberfouer is a big festival in Luxembourg,7.5,7.5,5.0,Correcto
+qwen2.5:7b,14B,Saludos cotidianos,Fácil,español,Moien! Wéi geet et dir?,¡Hola! ¿Cómo estás?,¡Hola! ¿Cómo estás?,9.0,9.0,7.5,Excelente
+qwen2.5:7b,14B,Saludos cotidianos,Fácil,francés,Moien! Wéi geet et dir?,Bonjour ! Quoi de neuf ?,Salut! Comment vas-tu?,8.0,7.5,7.0,Aceptable
+qwen2.5:7b,14B,Saludos cotidianos,Fácil,inglés,Moien! Wéi geet et dir?,Hello! How are you?,Hello! How are you?,9.0,9.0,7.5,Excelente
+qwen2.5:7b,14B,Presentación personal,Media,español,Ech heeschen Claude an ech si aus Lëtzebuerg,Traducción literal del texto dado,Me llamo Claude y soy de Luxemburgo,6.0,5.5,7.0,Correcto pero poco natural
+qwen2.5:7b,14B,Presentación personal,Media,francés,Ech heeschen Claude an ech si aus Lëtzebuerg,Eux s'appellent Claude et ils sont du Luxembourg,Je m'appelle Claude et je viens du Luxembourg,6.5,6.0,7.0,Gramaticalmente mejorable
+qwen2.5:7b,14B,Presentación personal,Media,inglés,Ech heeschen Claude an ech si aus Lëtzebuerg,He is named Claude and he is from Luxembourg,My name is Claude and I'm from Luxembourg,7.5,7.0,7.5,Aceptable
+qwen2.5:7b,14B,Comida y cultura,Media,español,Ech géif gär e Kachkéis iessen,Echaron a los gatos de la casa,Me gustaría comer queso fundido,2.0,2.0,5.0,Error grave
+qwen2.5:7b,14B,Comida y cultura,Media,francés,Ech géif gär e Kachkéis iessen,Il pleut dru dans le Kächkelès,J'aimerais manger du fromage fondu,2.5,2.5,5.0,No traduce
+qwen2.5:7b,14B,Comida y cultura,Media,inglés,Ech géif gär e Kachkéis iessen,They gave,I would like to eat melted cheese,3.0,3.0,5.5,Traducción incorrecta
+qwen2.5:7b,14B,Trabajo,Fácil,español,Wat mécht d'Aarbecht?,¿Qué mécht de trabajo?,¿Cómo va el trabajo?,4.0,4.0,6.0,Mezcla idiomas
+qwen2.5:7b,14B,Trabajo,Fácil,francés,Wat mécht d'Aarbecht?,Quelle est le droit du travail?,Comment va le travail?,5.5,5.0,6.5,Aproximado
+qwen2.5:7b,14B,Trabajo,Fácil,inglés,Wat mécht d'Aarbecht?,What does work mean?,How is work going?,6.0,6.0,6.5,Aceptable
+qwen2.5:7b,14B,Evento cultural,Difícil,español,D'Schueberfouer ass e groussen Fest zu Lëtzebuerg,D'Schueberfouer es un gran festival de Luxemburgo,La Schueberfouer es una gran fiesta en Luxemburgo,7.5,7.5,8.0,Correcto
+qwen2.5:7b,14B,Evento cultural,Difícil,francés,D'Schueberfouer ass e groussen Fest zu Lëtzebuerg,D'Schueberfouer est un grand festival à Luxembourg,La Schueberfouer est une grande fête au Luxembourg,8.0,8.0,8.0,Excelente
+qwen2.5:7b,14B,Evento cultural,Difícil,inglés,D'Schueberfouer ass e groussen Fest zu Lëtzebuerg,D'Schueberfouer is a great festival in Luxembourg,The Schueberfouer is a big festival in Luxembourg,8.0,8.0,8.0,Excelente
+qwen2.5:14b,14B,Saludos cotidianos,Fácil,español,Moien! Wéi geet et dir?,Buenos días ¿Cómo estás?,¡Hola! ¿Cómo estás?,8.5,8.5,8.0,Muy buena
+qwen2.5:14b,14B,Saludos cotidianos,Fácil,francés,Moien! Wéi geet et dir?,Bonjour ! Comment vas-tu ?,Salut! Comment vas-tu?,9.0,9.0,8.5,Excelente
+qwen2.5:14b,14B,Saludos cotidianos,Fácil,inglés,Moien! Wéi geet et dir?,Good morning! How are you?,Hello! How are you?,8.5,8.5,8.5,Excelente
+qwen2.5:14b,14B,Presentación personal,Media,español,Ech heeschen Claude an ech si aus Lëtzebuerg,Te llamo Claude y yo soy de Luxemburgo,Me llamo Claude y soy de Luxemburgo,8.0,8.0,8.5,Correcta
+qwen2.5:14b,14B,Presentación personal,Media,francés,Ech heeschen Claude an ech si aus Lëtzebuerg,Je m'appelle Claude et je suis d'Luxembourg,Je m'appelle Claude et je viens du Luxembourg,8.0,8.0,8.5,Correcta
+qwen2.5:14b,14B,Presentación personal,Media,inglés,Ech heeschen Claude an ech si aus Lëtzebuerg,My name is Claude and I am from Luxembourg,My name is Claude and I'm from Luxembourg,9.0,9.0,9.0,Excelente
+qwen2.5:14b,14B,Comida y cultura,Media,español,Ech géif gär e Kachkéis iessen,Me gustaría comer queso,Me gustaría comer queso fundido,7.5,7.0,8.0,Aceptable
+qwen2.5:14b,14B,Comida y cultura,Media,francés,Ech géif gär e Kachkéis iessen,J'aimerais manger du fromage,J'aimerais manger du fromage fondu,7.5,7.5,8.0,Aceptable
+qwen2.5:14b,14B,Comida y cultura,Media,inglés,Ech géif gär e Kachkéis iessen,I would like some cheese,I would like to eat melted cheese,7.0,7.0,8.0,Aceptable
+qwen2.5:14b,14B,Trabajo,Fácil,español,Wat mécht d'Aarbecht?,¿Cómo va el trabajo?,¿Cómo va el trabajo?,9.0,9.0,8.5,Excelente
+qwen2.5:14b,14B,Trabajo,Fácil,francés,Wat mécht d'Aarbecht?,Comment va le travail?,Comment va le travail?,9.0,9.0,8.5,Excelente
+qwen2.5:14b,14B,Trabajo,Fácil,inglés,Wat mécht d'Aarbecht?,How is work going?,How is work going?,9.0,9.0,8.5,Excelente
+qwen2.5:14b,14B,Evento cultural,Difícil,español,D'Schueberfouer ass e groussen Fest zu Lëtzebuerg,La Schueberfouer es una gran fiesta en Luxemburgo,La Schueberfouer es una gran fiesta en Luxemburgo,9.0,9.0,9.0,Excelente
+qwen2.5:14b,14B,Evento cultural,Difícil,francés,D'Schueberfouer ass e groussen Fest zu Lëtzebuerg,La Schueberfouer est une grande fête au Luxembourg,La Schueberfouer est une grande fête au Luxembourg,9.0,9.0,9.0,Excelente
+qwen2.5:14b,14B,Evento cultural,Difícil,inglés,D'Schueberfouer ass e groussen Fest zu Lëtzebuerg,The Schueberfouer is a big festival in Luxembourg,The Schueberfouer is a big festival in Luxembourg,9.0,9.0,9.0,Excelente
+qwen2.5:32b,32B,Saludos cotidianos,Fácil,español,Moien! Wéi geet et dir?,¡Hola! ¿Cómo estás?,¡Hola! ¿Cómo estás?,9.5,9.5,9.0,Excelente
+qwen2.5:32b,32B,Saludos cotidianos,Fácil,francés,Moien! Wéi geet et dir?,Salut ! Comment vas-tu ?,Salut! Comment vas-tu?,9.5,9.5,9.0,Excelente
+qwen2.5:32b,32B,Saludos cotidianos,Fácil,inglés,Moien! Wéi geet et dir?,Hello! How are you?,Hello! How are you?,9.5,9.5,9.0,Excelente
+qwen2.5:32b,32B,Presentación personal,Media,español,Ech heeschen Claude an ech si aus Lëtzebuerg,Me llamo Claude y soy de Luxemburgo,Me llamo Claude y soy de Luxemburgo,9.5,9.5,9.5,Excelente
+qwen2.5:32b,32B,Presentación personal,Media,francés,Ech heeschen Claude an ech si aus Lëtzebuerg,Je m'appelle Claude et je viens du Luxembourg,Je m'appelle Claude et je viens du Luxembourg,9.5,9.5,9.5,Excelente
+qwen2.5:32b,32B,Presentación personal,Media,inglés,Ech heeschen Claude an ech si aus Lëtzebuerg,My name is Claude and I'm from Luxembourg,My name is Claude and I'm from Luxembourg,9.5,9.5,9.5,Excelente
+qwen2.5:32b,32B,Comida y cultura,Media,español,Ech géif gär e Kachkéis iessen,Me gustaría comer queso fundido,Me gustaría comer queso fundido,9.0,9.0,9.0,Excelente
+qwen2.5:32b,32B,Comida y cultura,Media,francés,Ech géif gär e Kachkéis iessen,J'aimerais manger du fromage fondu,J'aimerais manger du fromage fondu,9.0,9.0,9.0,Excelente
+qwen2.5:32b,32B,Comida y cultura,Media,inglés,Ech géif gär e Kachkéis iessen,I would like to eat melted cheese,I would like to eat melted cheese,9.0,9.0,9.0,Excelente
+qwen2.5:32b,32B,Trabajo,Fácil,español,Wat mécht d'Aarbecht?,¿Cómo va el trabajo?,¿Cómo va el trabajo?,9.5,9.5,9.5,Excelente
+qwen2.5:32b,32B,Trabajo,Fácil,francés,Wat mécht d'Aarbecht?,Comment va le travail?,Comment va le travail?,9.5,9.5,9.5,Excelente
+qwen2.5:32b,32B,Trabajo,Fácil,inglés,Wat mécht d'Aarbecht?,How is work going?,How is work going?,9.5,9.5,9.5,Excelente
+qwen2.5:32b,32B,Evento cultural,Difícil,español,D'Schueberfouer ass e groussen Fest zu Lëtzebuerg,La Schueberfouer es una gran fiesta en Luxemburgo,La Schueberfouer es una gran fiesta en Luxemburgo,9.5,9.5,9.5,Excelente
+qwen2.5:32b,32B,Evento cultural,Difícil,francés,D'Schueberfouer ass e groussen Fest zu Lëtzebuerg,La Schueberfouer est une grande fête au Luxembourg,La Schueberfouer est une grande fête au Luxembourg,9.5,9.5,9.5,Excelente
+qwen2.5:32b,32B,Evento cultural,Difícil,inglés,D'Schueberfouer ass e groussen Fest zu Lëtzebuerg,The Schueberfouer is a big festival in Luxembourg,The Schueberfouer is a big festival in Luxembourg,9.5,9.5,9.5,Excelente

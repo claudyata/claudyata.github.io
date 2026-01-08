@@ -1,0 +1,3 @@
+Modelo,Dimensiones,Tamaño (MB),Velocidad (ms/texto),Similitud Relevantes,Similitud Irrelevantes,Separación
+mxbai-embed-large,1024,669,81.8,0.783,0.492,0.291
+nomic-embed-text,768,274,128.6,0.716,0.584,0.132

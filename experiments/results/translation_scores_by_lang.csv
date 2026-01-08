@@ -1,0 +1,16 @@
+model,target_lang,weighted_score_mean
+llama3.2:3b,español,3.84
+llama3.2:3b,francés,2.37
+llama3.2:3b,inglés,4.06
+llama3:8b,español,4.37
+llama3:8b,francés,5.19
+llama3:8b,inglés,5.24
+qwen2.5:14b,español,7.12
+qwen2.5:14b,francés,7.22
+qwen2.5:14b,inglés,7.24
+qwen2.5:32b,español,7.97
+qwen2.5:32b,francés,7.97
+qwen2.5:32b,inglés,7.97
+qwen2.5:7b,español,5.02
+qwen2.5:7b,francés,5.23
+qwen2.5:7b,inglés,5.73
