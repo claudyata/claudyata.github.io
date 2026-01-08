@@ -14,7 +14,7 @@ Este trabajo presenta el diseño y desarrollo de **Cl@ud-ia-data**, un agente vi
 
 El sistema se despliega en un entorno completamente privado sobre una infraestructura local basada en una **NVIDIA Jetson AGX Orin de 64 GB**, una plataforma de computación acelerada de alto rendimiento y **bajo consumo energético**. Esta elección tecnológica contribuye a un enfoque de **IA sostenible**, reduciendo de forma significativa la huella energética frente a soluciones basadas en grandes centros de datos en la nube.
 
-La metodología empleada se fundamenta en técnicas de **Generación Aumentada por Recuperación (RAG)**, utilizando exclusivamente modelos de **código abierto**. El desarrollo se ha llevado a cabo mediante un enfoque experimental, definiendo y ejecutando una serie de **experimentos** orientados a validar el rendimiento del sistema, la calidad de las respuestas generadas y la viabilidad técnica del Trabajo Final de Máster.
+La metodología empleada se fundamenta en técnicas de **Generación Aumentada por Recuperación (RAG)**, utilizando exclusivamente modelos de **código abierto**. El desarrollo se ha llevado a cabo mediante un enfoque experimental, definiendo y ejecutando una serie de **experimentos** orientados a validar el rendimiento del sistema, la calidad de las respuestas generadas y la viabilidad técnica del Trabajo Final de Grado.
 
 Como resultado, se obtiene un agente funcional capaz de generar respuestas precisas y contextualizadas a partir de datos deportivos de la **liga luxemburguesa**. Como artefacto final del proyecto, se entrega una **interfaz de consulta** que permite interactuar con el sistema de forma intuitiva y accesible para usuarios no técnicos.
 
@@ -24,9 +24,9 @@ En conclusión, el trabajo demuestra que es viable implementar soluciones de **I
 
 ## 🎓 Contexto Académico
 
-**Trabajo Final de Máster**  
+**Trabajo Final de Grado**  
 **Universitat Oberta de Catalunya (UOC)**  
-Máster en Ciencia de Datos  
+Grado en Ciencia de Datos Aplicada 
 Autor: Pedro José García  
 Año: 2025
 
@@ -610,8 +610,8 @@ Si utilizas este proyecto en investigación académica, por favor cita:
   title   = {Cl@udiata: Modelos de Lenguaje en la Analítica Deportiva},
   school  = {Universitat Oberta de Catalunya},
   year    = {2025},
-  type    = {Trabajo Final de Máster},
-  note    = {Máster en Ciencia de Datos},
+  type    = {Trabajo Final de Grado},
+  note    = {Grado de Ciencia de Datos},
   url     = {https://github.com/claudyata/claudyata.github.io}
 }
 ```
@@ -622,8 +622,7 @@ Si utilizas este proyecto en investigación académica, por favor cita:
 
 **Autor:** Pedro José García  
 **Institución:** Universitat Oberta de Catalunya (UOC)  
-**Email:** [tu_email@uoc.edu]  
-**LinkedIn:** [Tu perfil de LinkedIn]  
+**Email:** [perisperis@uoc.edu]  
 **GitHub:** [@claudyata](https://github.com/claudyata)
 
 ---
@@ -660,7 +659,6 @@ Para contribuir:
 ### Proyecto
 - **📦 Repositorio:** https://github.com/claudyata/claudyata.github.io
 - **🌐 Página Web:** https://claudyata.github.io
-- **📄 Documentación:** https://github.com/claudyata/claudyata.github.io/blob/main/DOC.md
 
 ### Tecnologías Utilizadas
 - **🤖 Ollama:** https://ollama.com/docs
