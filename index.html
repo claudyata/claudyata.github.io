@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cl@udiata - Agente Virtual de Análisis Deportivo basado en IA Generativa y Edge Computing">
-    <meta name="keywords" content="IA, Machine Learning, Edge Computing, Jetson, LLM, RAG, Análisis Deportivo">
+    <meta name="description" content="Cl@udiata: Modelos de Lenguaje en la Analítica Deportiva">
+    <meta name="keywords" content="JetsonAGX - Ollama - RAG">
     <meta name="author" content="Pedro José García">
     <title>Cl@udiata: Modelos de Lenguaje en la Analítica Deportiva</title>
     
@@ -168,6 +168,7 @@
             padding: 15px;
             text-align: left;
             border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
         }
 
         th {
@@ -214,6 +215,28 @@
             margin: 0 10px;
         }
 
+        .img-wrap {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+
+        .img-wrap img {
+            width: 100%;
+            height: auto;
+            display: block;
+            background: #fff;
+        }
+
+        .img-caption {
+            padding: 12px 16px;
+            font-size: 0.95em;
+            color: #666;
+            border-top: 1px solid var(--border-color);
+        }
+
         /* Stats */
         .stats {
             display: grid;
@@ -255,7 +278,7 @@
 
         code {
             font-family: 'Courier New', monospace;
-            font-size: 0.9em;
+            font-size: 0.95em;
         }
 
         /* Buttons */
@@ -357,7 +380,7 @@
     <!-- Header -->
     <header>
         <div class="container">
-            <h1>🤖 Cl@udiata:</h1>
+            <h1>🤖 Cl@udiata</h1>
             <p class="subtitle">Modelos de Lenguaje en la Analítica Deportiva</p>
             <div class="badges">
                 <span class="badge">Python 3.10</span>
@@ -375,6 +398,7 @@
             <li><a href="#descripcion">Descripción</a></li>
             <li><a href="#arquitectura">Arquitectura</a></li>
             <li><a href="#instalacion">Instalación</a></li>
+            <li><a href="#estructura">Estructura</a></li>
             <li><a href="#caracteristicas">Características</a></li>
             <li><a href="#benchmarks">Benchmarks</a></li>
             <li><a href="#licencia">Licencia</a></li>
@@ -421,17 +445,23 @@
                     <span class="stat-label">Consumo Promedio</span>
                 </div>
                 <div class="stat-box">
-                    <span class="stat-number">4.69</span>
-                    <span class="stat-label">Tokens/segundo</span>
+                    <span class="stat-number">4–5</span>
+                    <span class="stat-label">Tokens/segundo (32B Q4)</span>
                 </div>
                 <div class="stat-box">
                     <span class="stat-number">119</span>
                     <span class="stat-label">Partidos Analizados</span>
                 </div>
                 <div class="stat-box">
-                    <span class="stat-number">94.2%</span>
-                    <span class="stat-label">Precisión RAG</span>
+                    <span class="stat-number">RAG</span>
+                    <span class="stat-label">Con trazabilidad</span>
                 </div>
+            </div>
+
+            <div style="margin-top: 20px; text-align: center;">
+                <a href="https://github.com/claudyata/claudyata.github.io" class="btn">📦 Repositorio</a>
+                <a href="https://claudyata.github.io" class="btn btn-success">🌐 Web</a>
+                <a href="https://www.youtube.com/@claudyata" class="btn">🎥 Demos</a>
             </div>
         </div>
     </section>
@@ -456,7 +486,7 @@
                         <td><strong>LLM</strong></td>
                         <td>Qwen2.5</td>
                         <td>32B (Q4_K_M)</td>
-                        <td>Generación de respuestas</td>
+                        <td>Generación de respuestas y traducción</td>
                     </tr>
                     <tr>
                         <td><strong>Embeddings</strong></td>
@@ -483,6 +513,12 @@
                         <td>Arquitectura Medallion</td>
                     </tr>
                     <tr>
+                        <td><strong>Runtime</strong></td>
+                        <td>Ollama</td>
+                        <td>0.6+</td>
+                        <td>Servidor LLM local</td>
+                    </tr>
+                    <tr>
                         <td><strong>Hardware</strong></td>
                         <td>Jetson AGX Orin</td>
                         <td>64GB</td>
@@ -491,7 +527,7 @@
                 </tbody>
             </table>
 
-            <h3>Arquitectura Medallion</h3>
+            <h3>Arquitectura Medallion (Bronze → Silver → Gold)</h3>
             <div class="medallion-flow">
                 <div class="medallion-stage">
                     <h4>🥉 BRONZE</h4>
@@ -502,14 +538,19 @@
                 <div class="medallion-stage">
                     <h4>🥈 SILVER</h4>
                     <p>Cleaned Data</p>
-                    <small>CSV, Eventos</small>
+                    <small>CSV/JSON</small>
                 </div>
                 <span class="arrow">→</span>
                 <div class="medallion-stage">
                     <h4>🥇 GOLD</h4>
                     <p>Embeddings</p>
-                    <small>ChromaDB, Índices</small>
+                    <small>ChromaDB</small>
                 </div>
+            </div>
+
+            <div class="img-wrap">
+                <img src="docs/img/Medallion.png" alt="Arquitectura Medallion">
+                <div class="img-caption">Arquitectura Medallion basada en MinIO (Bronze / Silver / Gold).</div>
             </div>
 
             <h3>Flujo RAG (Retrieval-Augmented Generation)</h3>
@@ -517,11 +558,21 @@
                 <ol style="font-size: 1.1em; line-height: 2;">
                     <li><strong>Usuario</strong> → Consulta en lenguaje natural</li>
                     <li><strong>Embedding</strong> → Vectorización con e5-large</li>
-                    <li><strong>Búsqueda</strong> → Recuperación semántica en ChromaDB</li>
-                    <li><strong>Contexto</strong> → Construcción de prompt con eventos relevantes</li>
+                    <li><strong>Búsqueda</strong> → Recuperación semántica en ChromaDB (Top-K)</li>
+                    <li><strong>Contexto</strong> → Construcción del prompt con eventos relevantes</li>
                     <li><strong>Generación</strong> → Respuesta con LLM (Qwen2.5 32B)</li>
                     <li><strong>Resultado</strong> → Respuesta contextualizada al usuario</li>
                 </ol>
+            </div>
+
+            <div class="img-wrap">
+                <img src="docs/img/RAG.png" alt="Flujo RAG">
+                <div class="img-caption">Flujo RAG: recuperación semántica + generación controlada.</div>
+            </div>
+
+            <div class="success-box">
+                <p><strong>✅ Ventajas del enfoque RAG:</strong> respuestas basadas en datos reales, trazabilidad de fuentes,
+                actualización sin reentrenamiento y reducción de alucinaciones.</p>
             </div>
         </div>
     </section>
@@ -535,27 +586,63 @@
             <ul style="font-size: 1.1em; line-height: 1.8;">
                 <li><strong>Hardware:</strong> NVIDIA Jetson AGX Orin (64GB RAM recomendado)</li>
                 <li><strong>SO:</strong> Ubuntu 22.04 (JetPack 6.2+)</li>
-                <li><strong>Software:</strong> Conda/Miniforge, Docker, CUDA 12.6+</li>
+                <li><strong>Software:</strong> Conda/Miniforge, Docker (opcional para MinIO), CUDA 12.6+</li>
             </ul>
 
-            <h3>Paso 1: Clonar Repositorio</h3>
+            <h3>1) Clonar Repositorio</h3>
             <pre><code>git clone https://github.com/claudyata/claudyata.github.io
 cd claudyata.github.io</code></pre>
 
-            <h3>Paso 2: Configurar Entorno</h3>
+            <h3>2) Configurar Entorno Conda</h3>
             <pre><code># Crear entorno conda
 conda env create -f environment.yml
 conda activate tfg</code></pre>
 
-            <h3>Paso 3: Instalar Ollama y Modelos</h3>
+            <h3>3) Instalar Ollama y Modelos</h3>
             <pre><code># Instalar Ollama
 curl -fsSL https://ollama.com/install.sh | sh
 
 # Descargar modelos
 ollama pull qwen2.5:32b
-ollama pull mxbai-embed-large</code></pre>
+ollama pull mxbai-embed-large
 
-            <h3>Paso 4: Ejecutar Aplicación</h3>
+# Verificar
+ollama list</code></pre>
+
+            <h3>4) Configurar MinIO (opcional, vía Docker)</h3>
+            <pre><code>docker run -d \
+  -p 9000:9000 \
+  -p 9001:9001 \
+  --name minio \
+  -v ~/minio/data:/data \
+  -e "MINIO_ROOT_USER=admin" \
+  -e "MINIO_ROOT_PASSWORD=admin123" \
+  quay.io/minio/minio server /data --console-address ":9001"
+
+# Consola: http://localhost:9001 (admin / admin123)</code></pre>
+
+            <h3>5) Variables de entorno</h3>
+            <pre><code># Crear archivo .env en artefactos/src/
+cat &gt; artefactos/src/.env &lt;&lt; EOF
+# MinIO
+MINIO_ENDPOINT=localhost:9000
+MINIO_ACCESS_KEY=admin
+MINIO_SECRET_KEY=admin123
+MINIO_SECURE=False
+
+# Ollama
+OLLAMA_HOST=http://localhost:11434
+OLLAMA_MODEL=qwen2.5:32b
+
+# ChromaDB
+CHROMADB_PATH=../../chroma_db
+EOF</code></pre>
+
+            <h3>6) Inicializar Base de Datos Vectorial</h3>
+            <pre><code>cd artefactos/src
+python -c "from core.rag_client import RAGClient; RAGClient()"</code></pre>
+
+            <h3>7) Ejecutar Aplicación</h3>
             <pre><code>cd artefactos/src
 streamlit run app.py</code></pre>
 
@@ -570,6 +657,41 @@ streamlit run app.py</code></pre>
         </div>
     </section>
 
+    <!-- Estructura -->
+    <section id="estructura">
+        <div class="container">
+            <h2>📂 Estructura del Proyecto</h2>
+
+            <div class="info-box">
+                <p><strong>Nota:</strong> Las rutas pueden variar si reorganizas carpetas, pero el repositorio mantiene separación
+                clara entre <em>experiments</em>, <em>docs</em> y el artefacto (<em>Streamlit</em>).</p>
+            </div>
+
+            <pre><code>claudyata.github.io/
+├── artefactos/
+│   └── src/
+│       ├── app.py
+│       ├── core/
+│       ├── tabs/
+│       └── utils/
+├── docs/
+│   ├── 02-setup-jetson-orin.md
+│   ├── 03-setup-docker.md
+│   ├── 04-arquitectura-medallion.md
+│   └── 09-benchmark_qwen_quantization.md
+├── experiments/
+│   ├── 01-comparativa-gpu.ipynb
+│   ├── 05-comparativa-gestor-llm.ipynb
+│   ├── 06-comparativa-embeddings.ipynb
+│   ├── 07-comparativa-modelos-llm.ipynb
+│   └── 08-etl-bronze-to-silver-to-gold.ipynb
+├── environment.yml
+├── Modelfile.claudiata
+├── index.html
+└── README.md</code></pre>
+        </div>
+    </section>
+
     <!-- Características -->
     <section id="caracteristicas">
         <div class="container">
@@ -579,39 +701,39 @@ streamlit run app.py</code></pre>
                 <div class="card">
                     <div class="card-icon">🔍</div>
                     <h3>Búsqueda RAG</h3>
-                    <p>Consultas en lenguaje natural sobre partidos de fútbol con recuperación semántica de eventos relevantes y respuestas contextualizadas por LLM.</p>
+                    <p>Consultas en lenguaje natural sobre partidos con recuperación semántica de eventos relevantes y respuestas contextualizadas por LLM.</p>
                     <p><strong>Idiomas:</strong> Español, Francés, Luxemburgués, Alemán</p>
                 </div>
 
                 <div class="card">
                     <div class="card-icon">📝</div>
                     <h3>Generación de Resúmenes</h3>
-                    <p>Crónicas automáticas de partidos con análisis táctico detallado y narrativa natural adaptada al idioma.</p>
-                    <p><strong>Exportación:</strong> Múltiples formatos</p>
+                    <p>Crónicas automáticas de partidos con análisis táctico y narrativa natural, adaptada al idioma.</p>
+                    <p><strong>Exportación:</strong> TXT, MD, PDF (según configuración)</p>
                 </div>
 
                 <div class="card">
                     <div class="card-icon">📈</div>
                     <h3>Análisis Estadístico</h3>
-                    <p>Clasificación de equipos, top goleadores, métricas de rendimiento individuales y colectivas con visualizaciones interactivas.</p>
+                    <p>Clasificación de equipos, top goleadores y métricas de rendimiento con visualizaciones en Streamlit.</p>
                 </div>
 
                 <div class="card">
                     <div class="card-icon">🌐</div>
                     <h3>Traducción Multiidioma</h3>
-                    <p>Soporte para 4 idiomas con traducción automática de resúmenes preservando el contexto deportivo.</p>
+                    <p>Traducción automática preservando el contexto deportivo y terminología (especial foco en luxemburgués).</p>
                 </div>
 
                 <div class="card">
                     <div class="card-icon">💻</div>
                     <h3>Monitoreo de Recursos</h3>
-                    <p>Consumo energético en tiempo real, temperatura de GPU, uso de memoria RAM/VRAM y métricas de rendimiento (tokens/s, latencia).</p>
+                    <p>Consumo energético, temperatura y uso de RAM/VRAM en tiempo real (integración con tegrastats).</p>
                 </div>
 
                 <div class="card">
                     <div class="card-icon">🔒</div>
                     <h3>Privacidad Total</h3>
-                    <p>Despliegue 100% local sin conexión a internet. Todos los datos permanecen en infraestructura propia.</p>
+                    <p>Despliegue local: datos y modelos permanecen dentro de infraestructura propia sin servicios cloud.</p>
                 </div>
             </div>
         </div>
@@ -622,170 +744,74 @@ streamlit run app.py</code></pre>
         <div class="container">
             <h2>🧪 Experimentos y Benchmarks</h2>
 
-            <h3>1. Comparativa de GPUs</h3>
+            <div class="info-box">
+                <p><strong>Importante:</strong> Los resultados detallados y reproducibles se encuentran en la carpeta <code>experiments/</code>.</p>
+            </div>
+
+            <h3>1. Comparativa de Infraestructuras (Edge vs Datacenter)</h3>
+            <div class="img-wrap">
+                <img src="docs/img/GPU.png" alt="Comparativa GPUs / Infraestructuras">
+                <div class="img-caption">Comparativa multicriterio de infraestructuras evaluadas.</div>
+            </div>
             <table>
                 <thead>
                     <tr>
-                        <th>GPU</th>
-                        <th>TFLOPS/TOPS</th>
-                        <th>Consumo</th>
-                        <th>Coste</th>
-                        <th>Puntuación</th>
+                        <th>Opción</th>
+                        <th>Enfoque</th>
+                        <th>Objetivo</th>
+                        <th>Resultado</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr style="background: #d4edda;">
-                        <td><strong>Jetson Orin ✅</strong></td>
-                        <td>275 TOPS</td>
-                        <td>60W</td>
-                        <td>$899</td>
-                        <td><strong>85.2%</strong></td>
+                        <td><strong>Jetson AGX Orin ✅</strong></td>
+                        <td>Edge / Local</td>
+                        <td>Viabilidad (coste/consumo/privacidad)</td>
+                        <td><strong>Opción seleccionada</strong></td>
                     </tr>
                     <tr>
-                        <td>NVIDIA H100</td>
-                        <td>1979 TFLOPS</td>
-                        <td>700W</td>
-                        <td>$30,000</td>
-                        <td>72.5%</td>
+                        <td>NVIDIA H100 NVL</td>
+                        <td>Datacenter</td>
+                        <td>Máximo rendimiento</td>
+                        <td>Descartada por coste/consumo</td>
                     </tr>
                     <tr>
-                        <td>NVIDIA A100</td>
-                        <td>624 TFLOPS</td>
-                        <td>400W</td>
-                        <td>$10,000</td>
-                        <td>54.8%</td>
+                        <td>RTX 5090</td>
+                        <td>Workstation</td>
+                        <td>Alto rendimiento local</td>
+                        <td>Alternativa evaluada</td>
                     </tr>
                 </tbody>
             </table>
             <div class="success-box">
-                <p><strong>✅ Conclusión:</strong> Jetson AGX Orin ofrece el mejor balance rendimiento/coste/consumo para edge computing.</p>
+                <p><strong>✅ Conclusión:</strong> Jetson AGX Orin ofrece el mejor balance rendimiento/coste/consumo para el caso de uso (edge computing).</p>
             </div>
 
             <h3>2. Comparativa de Embeddings</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Modelo</th>
-                        <th>Dimensiones</th>
-                        <th>Velocidad</th>
-                        <th>Calidad</th>
-                        <th>Ranking</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr style="background: #d4edda;">
-                        <td><strong>e5-large ✅</strong></td>
-                        <td>1024</td>
-                        <td>0.42s</td>
-                        <td>95.3%</td>
-                        <td><strong>1º</strong></td>
-                    </tr>
-                    <tr>
-                        <td>mxbai-embed</td>
-                        <td>1024</td>
-                        <td>0.38s</td>
-                        <td>93.1%</td>
-                        <td>2º</td>
-                    </tr>
-                    <tr>
-                        <td>nomic-embed</td>
-                        <td>768</td>
-                        <td>0.51s</td>
-                        <td>91.8%</td>
-                        <td>3º</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3>3. Comparativa de LLMs</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Modelo</th>
-                        <th>Parámetros</th>
-                        <th>Tokens/s</th>
-                        <th>Memoria</th>
-                        <th>Calidad</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr style="background: #d4edda;">
-                        <td><strong>Qwen2.5 ✅</strong></td>
-                        <td>32B</td>
-                        <td><strong>4.69</strong></td>
-                        <td>19GB</td>
-                        <td>9.2/10</td>
-                    </tr>
-                    <tr>
-                        <td>Llama 3.3</td>
-                        <td>70B</td>
-                        <td>2.31</td>
-                        <td>42GB</td>
-                        <td>9.1/10</td>
-                    </tr>
-                    <tr>
-                        <td>Mistral</td>
-                        <td>7B</td>
-                        <td>12.45</td>
-                        <td>4.7GB</td>
-                        <td>7.8/10</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3>4. Benchmark de Cuantización</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Cuantización</th>
-                        <th>Tamaño</th>
-                        <th>Tokens/s</th>
-                        <th>Memoria</th>
-                        <th>Calidad</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>FP16</td>
-                        <td>38GB</td>
-                        <td>3.42</td>
-                        <td>40GB</td>
-                        <td>10/10</td>
-                    </tr>
-                    <tr>
-                        <td>Q5_K_M</td>
-                        <td>23GB</td>
-                        <td>4.37</td>
-                        <td>25GB</td>
-                        <td>9.8/10</td>
-                    </tr>
-                    <tr style="background: #d4edda;">
-                        <td><strong>Q4_K_M ✅</strong></td>
-                        <td>19GB</td>
-                        <td><strong>4.69</strong></td>
-                        <td>19GB</td>
-                        <td>9.5/10</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="img-wrap">
+                <img src="docs/img/Embeddings.png" alt="Comparativa Embeddings">
+                <div class="img-caption">Resultado de la comparativa de modelos de embeddings multilingües.</div>
+            </div>
             <div class="success-box">
-                <p><strong>✅ Conclusión:</strong> Cuantización Q4_K_M es óptima para Jetson (mejor velocidad sin pérdida perceptible de calidad).</p>
+                <p><strong>✅ Conclusión:</strong> <code>intfloat/multilingual-e5-large</code> es óptimo para búsqueda semántica multilingüe en el contexto del proyecto.</p>
             </div>
 
-            <h3>Resultados Clave del Proyecto</h3>
-            <div class="info-box">
-                <ul style="font-size: 1.1em; line-height: 1.8;">
-                    <li>✅ <strong>Consumo energético:</strong> ~20W durante inferencia (vs 400W+ en cloud)</li>
-                    <li>✅ <strong>Latencia:</strong> ~200ms por token (aceptable para uso interactivo)</li>
-                    <li>✅ <strong>Throughput:</strong> 4-5 tokens/segundo con modelo 32B</li>
-                    <li>✅ <strong>Precisión RAG:</strong> 94.2% en recuperación de contexto relevante</li>
-                    <li>✅ <strong>Satisfacción usuarios:</strong> 8.7/10 en pruebas con analistas deportivos</li>
-                </ul>
+            <h3>3. Comparativa de Modelos LLM</h3>
+            <div class="img-wrap">
+                <img src="docs/img/Qwen.png" alt="Comparativa LLMs">
+                <div class="img-caption">Resultado de la comparativa de modelos generativos (selección Qwen2.5 32B).</div>
+            </div>
+            <div class="success-box">
+                <p><strong>✅ Conclusión:</strong> Qwen2.5 32B (Q4) ofrece el mejor balance calidad/viabilidad en Jetson 64GB para traducción + RAG.</p>
+            </div>
+
+            <h3>4. Análisis de Costes</h3>
+            <div class="img-wrap">
+                <img src="docs/img/COSTE.png" alt="Análisis de Costes">
+                <div class="img-caption">Desglose de costes: hardware + operativo (OPEX).</div>
             </div>
         </div>
     </section>
-
-
 
     <!-- Licencia -->
     <section id="licencia">
@@ -843,7 +869,7 @@ streamlit run app.py</code></pre>
             <div style="text-align: center; font-size: 1.2em; line-height: 2;">
                 <p><strong>Autor:</strong> Pedro José García</p>
                 <p><strong>Institución:</strong> Universitat Oberta de Catalunya (UOC)</p>
-                <p><strong>Email:</strong> <a href="mailto:tu_email@uoc.edu">perisperis@uoc.edu</a></p>
+                <p><strong>Email:</strong> <a href="mailto:perisperis@uoc.edu">perisperis@uoc.edu</a></p>
                 <p><strong>GitHub:</strong> <a href="https://github.com/claudyata">@claudyata</a></p>
             </div>
 
